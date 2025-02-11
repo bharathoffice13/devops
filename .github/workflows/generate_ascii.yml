@@ -28,4 +28,12 @@ jobs:
         run: |
           chmod +x ./shell.sh
           ./shell.sh
-          
+    
+    needs_job:  #this job will fail because it will be running on a different runner.
+        needs: ascii_job
+        runs-on: ubuntu-latest
+        steps:
+          - name: cat the shellscript 
+            run: cat shell.sh
+
+
