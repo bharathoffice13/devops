@@ -15,11 +15,6 @@ jobs:
             echo "my first message"
             ls -ltra 
             cat README.md
-    
-        
-          
-         
-
     #    - name: list 
     #      run: ls
 
