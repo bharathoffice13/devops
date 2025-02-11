@@ -1,0 +1,19 @@
+name: my first workflow
+
+on: push
+
+jobs:
+    first_job:
+        runs-on: windows-2019
+        steps:
+        - name: welcome message  
+          run: echo "my first message"
+    
+        - name: list 
+          run: ls
+
+        - name: read file 
+          run: cat README.md
+
+            
+
