@@ -13,11 +13,10 @@ jobs:
         - name: List and read files 
           run: |
             echo "my first message"
-            ls -ltr 
+            ls -ltra 
             cat README.md
     
-        - name: Generating a ASCII artwork
-          run: cowsay -f dragon "Run for a cover, I am a dragon.... Bharath" >> dragon.txt
+        
           
          
 
