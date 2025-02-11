@@ -10,10 +10,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: install cowsay program 
-        run: apt get-install cowsay -y 
+        run: sudo apt get-install cowsay -y 
           
       - name: Execute cowsay command 
-        run: cowsay -f dragon "Run for a cover, I am a dragon.... Bharath" >> dragon.txt
+        run: cowsay -f dragon "Run for a cover, I asm a dragon.... Bharath" >> dragon.txt
 
       - name: test file exists
         run: grep -i "dragon" dragon.txt
