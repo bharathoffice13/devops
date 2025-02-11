@@ -8,15 +8,24 @@ jobs:
         steps:
         - name: checkout actions
           uses: actions/checkout@v4
-        
-        - name: welcome message  
-          run: echo "my first message"
     
-        - name: list 
-          run: ls
+    #this | is used to run multiple commands in a single step      
+        - name: List and read files 
+          run: |
+            echo "my first message"
+            ls -ltr 
+            cat README.md
+    
+        - name: Generating a ASCII artwork
+          run: cowsay -f dragon "Run for a cover, I am a dragon.... Bharath" >> dragon.txt
+          
+         
 
-        - name: read file 
-          run: cat README.md
+    #    - name: list 
+    #      run: ls
+
+    #    - name: read file 
+    #      run: cat README.md
 
             
 
