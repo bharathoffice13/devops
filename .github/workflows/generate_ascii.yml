@@ -22,7 +22,7 @@ on:
           - support
 
       Environment:
-        description: "Select your role"
+        description: "Select your Branch"
         required: true
         type: environment
 
