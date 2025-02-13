@@ -1,6 +1,36 @@
 name: Generating a ascii artwork 
 
-on: push 
+on: 
+  workflow_dispatch:   
+    inputs:
+      Name:
+        description: "enter your name"
+        required: true
+        default: ":)"
+        type: string
+      age:
+        description: "ENTER YOUR NAME"
+        required: true
+        type: number
+      Job_role:
+        description: "Chooose your job role"
+        required: true
+        type: choice
+        options:
+          - Manager
+          - Developer
+          - support
+
+      Environment:
+        description: "Select your role"
+        required: true
+        type: environment
+
+          
+
+
+
+
 
 jobs:
     ascii_job:
@@ -21,10 +51,17 @@ jobs:
         with:
           name: dragon_text_file
           path: ./dragon.txt
+      - name: Greeting the user
+        run: |
+          echo "Hi ${{github.event.inputs.Name}} Welcome"
+          echo "You are ${{github.event.inputs.age}} and you are a ${{github.event.inputs.Job_role}}"
 
     
     needs_job:  #this job will fail because it will be running on a different runner.
         needs: ascii_job
+        concurrency: 
+            group: important production deployment 
+            cancel-in-progress: true
         runs-on: ubuntu-latest
         steps:
 
@@ -32,8 +69,6 @@ jobs:
             uses: actions/download-artifact@v4
             with:
                 name: dragon_text_file 
-
-
 
           - name: cat the dragon artifact file 
             run: cat dragon.txt
