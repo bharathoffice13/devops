@@ -23,7 +23,7 @@ on:
 
       Environment:
         description: "Select your Branch"
-        required: true
+        required: false
         type: environment
 
           
